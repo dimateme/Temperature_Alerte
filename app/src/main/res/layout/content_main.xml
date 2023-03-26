@@ -5,73 +5,79 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="25dp"
     android:background="@drawable/gradient_bg"
     tools:context=".MainActivity">
 
-    <RelativeLayout
-        android:id="@+id/mainContainer"
+    <ProgressBar
+        android:id="@+id/prgbar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:visibility="visible">
+        android:layout_height="match_parent">
 
         <LinearLayout
-            android:id="@+id/temperatureContainer"
+            android:id="@+id/ll_main_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical">
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            android:padding="25dp">
 
-            <TextView
-                android:id="@+id/temperature"
+            <ImageView
+                android:id="@+id/imageView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginBottom="20dp"
-                android:layout_weight="1"
-                android:text="Temperature"
-                android:textColor="#ffffff"
-                android:textSize="30sp" />
-        </LinearLayout>
+                android:layout_height="150dp"
+                android:layout_marginBottom="16dp"
+                app:srcCompat="@drawable/logins" />
 
-        <LinearLayout
-            android:id="@+id/temperatureContainer2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/temperatureDhtt22"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edtCourriel"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Sensor"
-                android:textSize="30sp"></TextView>
+                android:background="@drawable/rounded_editext"
+                android:hint="Courriel"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:paddingLeft="20sp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textColorHint="#5A5858"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/temperatureDhtt22Value"
-                android:layout_width="wrap_content"
+            <EditText
+                android:id="@+id/edtMotDePasse"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="24 °C"
-                android:textSize="50sp"
-                ></TextView>
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rounded_editext"
+                android:hint="Mot de passe"
+                android:inputType="textPassword"
+                android:padding="10dp"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <Button
-                android:id="@+id/refreshButton"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:text="Etat de la température"
-                android:textSize="20sp"
-                ></Button>
-        </LinearLayout>
+                android:id="@+id/btnConnexion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/rounded_button"
+                android:text="Connexion"
+                android:textColor="@color/black"
+                android:textSize="20sp" />
 
-    </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

@@ -6,14 +6,15 @@ data class LoginResponse(
     @SerializedName("message")
     var message: String,
     @SerializedName("body")
-    var body: Body
+    var `body`: Body
+
 ){
     data class Body(
-        @SerializedName("Courriel")
-        var Courriel: String,
-        @SerializedName("MotDePasse")
-        var MotDePasse: String,
-        @SerializedName("Token")
+//        @SerializedName("Courriel")
+//        var courriel: String,
+//        @SerializedName("MotDePasse")
+//        var motDePasse: String,
+        @SerializedName("token")
         var token: String
 
     )
