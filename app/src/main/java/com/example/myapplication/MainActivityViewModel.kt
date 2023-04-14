@@ -8,9 +8,11 @@ import retrofit2.Response
 class MainActivityViewModel :ViewModel() {
     lateinit var createNewTemperatureLiveData: MutableLiveData<TemperatureResponse?>
     lateinit var recyclerSeuilListData: MutableLiveData<ListeTemperaturSeuil>
+    lateinit var updateTemperatureSeuil: MutableLiveData<TemperatureSeuilResponse?>
     init {
         createNewTemperatureLiveData = MutableLiveData()
         recyclerSeuilListData = MutableLiveData()
+        updateTemperatureSeuil = MutableLiveData()
     }
 
     fun getTemperatureSeuilObservrable() : MutableLiveData<ListeTemperaturSeuil>{
@@ -37,6 +39,9 @@ class MainActivityViewModel :ViewModel() {
     fun getCreateNewTemperatureObserver(): MutableLiveData<TemperatureResponse?>{
         return createNewTemperatureLiveData
     }
+    fun getUpdateTemperatureObserver(): MutableLiveData<TemperatureSeuilResponse?> {
+        return updateTemperatureSeuil
+    }
     fun createNewTemperature(temperature: Temperature){
         val retroService = RetroInstance.getRetroInstance().create(RetroService::class.java)
         val call = retroService.ajouterTemperature(temperature)
@@ -54,5 +59,24 @@ class MainActivityViewModel :ViewModel() {
             }
         }))
     }
+
+    fun updateTemperatureSeuil(id:String,temperatureSeuil: TemperatureSeuil){
+        val retroInstance = RetroInstance.getRetroInstance().create(RetroService::class.java)
+        val call = retroInstance.modifierSeuil(id, temperatureSeuil)
+        call.enqueue((object :Callback<TemperatureSeuilResponse>{
+            override fun onFailure(call: Call<TemperatureSeuilResponse>, t: Throwable) {
+                updateTemperatureSeuil.postValue(null)
+            }
+
+            override fun onResponse(call: Call<TemperatureSeuilResponse>, response: Response<TemperatureSeuilResponse>) {
+                if(response.isSuccessful){
+                    updateTemperatureSeuil.postValue(response.body())
+                }else{
+                    updateTemperatureSeuil.postValue(null)
+                }
+            }
+        }))
+    }
+
 
 }

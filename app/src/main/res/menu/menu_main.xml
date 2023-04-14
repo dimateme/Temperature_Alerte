@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.myapplication.MainActivity">
     <item
-        android:id="@+id/action_settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
-    <item
         android:id="@+id/action_seDeconnecter"
         android:orderInCategory="100"
         android:title="Deconnexion"
+        />
+    <item
+        android:id="@+id/action_infos_bd"
+        android:orderInCategory="100"
+        android:title="Infos BD"
         />
 
 </menu>

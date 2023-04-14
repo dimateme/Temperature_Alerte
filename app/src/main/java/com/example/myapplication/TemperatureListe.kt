@@ -11,6 +11,7 @@ data class Temperature (
 //    val id: String?
 
 )
+/**/
 data class TemperatureResponse (
     val status : Float?,
     val message : String?,

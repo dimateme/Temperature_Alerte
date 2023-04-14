@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Infos_bd">
+
+
+    <TextView
+        android:id="@+id/textSeuilMax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seuil Max"
+        android:textStyle="bold"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        />
+     <EditText
+         android:id="@+id/edtSeuilMax"
+         android:layout_marginTop="20dp"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:paddingStart="15dp"
+         android:layout_marginEnd="20dp"
+         android:layout_marginStart="20dp"
+         />
+    <TextView
+        android:id="@+id/textSeuilMin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:hint="Seuil Min"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        />
+    <EditText
+        android:id="@+id/edtSeuilMin"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        />
+    <Button
+        android:id="@+id/btnModifier"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="Modifier"
+        android:layout_marginStart="20dp"
+        />
+</LinearLayout>

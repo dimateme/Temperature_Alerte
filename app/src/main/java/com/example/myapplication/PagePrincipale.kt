@@ -43,6 +43,7 @@ class PagePrincipale : AppCompatActivity() {
     var str:String = "0"
     var valeur: Float=0.0f
     var temperaturePrecedente:Float = 0.0f
+    var id_temperature: String = "0"
     private val mqttClient by lazy {
         MqttClientHelper(this)
 
@@ -63,8 +64,12 @@ class PagePrincipale : AppCompatActivity() {
             }else{
                 Toast.makeText(this, "Temperature est normale", Toast.LENGTH_LONG).show()
             }
-            println("Etat de la temperature")
+            println("id valeur "+id_temperature)
+            modifierTemperatureSeuil(id_temperature)
         }
+//        if(id_temperature !=null){
+////            modifierTemperatureSeuil(id_temperature)
+//        }
 
         afficherValeurTemperature = findViewById(R.id.temperatureDhtt22Value)
 
@@ -144,6 +149,7 @@ class PagePrincipale : AppCompatActivity() {
                     val mesValeurs= response.body()
                     seuilMax = mesValeurs?.body?.get(0)?.SeuilMax.toString().toFloat()
                     seuilMin = mesValeurs?.body?.get(0)?.SeuilMin.toString().toFloat()
+                    id_temperature = mesValeurs?.body?.get(0)?.id.toString()
                 }else{
                     recyclerListData.postValue(null)
                 }
@@ -154,6 +160,14 @@ class PagePrincipale : AppCompatActivity() {
 
 
         })
+    }
+    /*fonction qui permet les temperatures seuils*/
+    fun modifierTemperatureSeuil(id:String){
+        viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
+        val temperatureSeuil = TemperatureSeuil(2.5F,2.5F)
+        viewModel.updateTemperatureSeuil(id,temperatureSeuil)
+        println( viewModel.updateTemperatureSeuil(id,temperatureSeuil))
+
     }
 
 
@@ -168,14 +182,22 @@ class PagePrincipale : AppCompatActivity() {
         // gère automatiquement les clics sur le bouton Home/Up, aussi longtemps
         // que vous spécifiez une activité parente dans AndroidManifest.xml.
         return  when (item.itemId) {
-            R.id.action_settings -> {
-                return true
-            }
-
             R.id.action_seDeconnecter -> {
                 SessionManager.clearData(this)
                 val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
+
+                return true
+            }
+            R.id.action_infos_bd -> {
+
+                if(id_temperature !=null){
+                    val intent = Intent(this@PagePrincipale, Infos_bd::class.java)
+                    intent.putExtra("id_temperature",id_temperature)
+                    intent.putExtra("seuilMax",seuilMax.toString())
+                    intent.putExtra("seuilMin",seuilMin.toString())
+                    startActivity(intent)
+                }
 
                 return true
             }
