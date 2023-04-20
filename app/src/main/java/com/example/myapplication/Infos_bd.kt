@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.activity_infos_bd.*
+import java.lang.Float.parseFloat
 
 
 class Infos_bd : AppCompatActivity() {
@@ -32,17 +33,33 @@ class Infos_bd : AppCompatActivity() {
 
             if(id_temperatureSeuil != null){
                 modifierTemperatureSeuil(id_temperatureSeuil.toString())
-                Toast.makeText(this, "Modification effectuée", Toast.LENGTH_SHORT).show()
+
             }else{
-                Toast.makeText(this, "Modification non effectuée", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "La valeur seuil n'exite pas", Toast.LENGTH_SHORT).show()
             }
         }
     }
+    /*Cette fonction permet de modifier les températures seuils*/
     fun modifierTemperatureSeuil(id:String){
         viewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        val temperatureSeuil = TemperatureSeuil(edtSeuilMax.text.toString().toFloat(),edtSeuilMin.text.toString().toFloat())
-        viewModel.updateTemperatureSeuil(id,temperatureSeuil)
-        println( viewModel.updateTemperatureSeuil(id,temperatureSeuil))
+        var estFloat: Boolean=true
+        var valeurMax:Float = 0.0f
+        var valeurMin:Float = 0.0f
+        try {
+             valeurMax= parseFloat(edtSeuilMax.text.toString())
+             valeurMin= parseFloat(edtSeuilMin.text.toString())
+            estFloat = true
+        }catch (e: NumberFormatException){
+            estFloat = false
+        }
+        if(estFloat){
+            val temperatureSeuil = TemperatureSeuil(valeurMax,valeurMin)
+            viewModel.updateTemperatureSeuil(id,temperatureSeuil)
+            Toast.makeText(this, "La modification a été avec succès", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this, "Veuillez entrer des valeurs numériques", Toast.LENGTH_SHORT).show()
+        }
+
 
     }
 

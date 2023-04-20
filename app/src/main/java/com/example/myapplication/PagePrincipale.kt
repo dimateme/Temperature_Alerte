@@ -41,6 +41,7 @@ class PagePrincipale : AppCompatActivity() {
     var seuilMax: Float = 0.0f
     var seuilMin: Float = 0.0f
     var str:String = "0"
+    var etat: Boolean = false
     var valeur: Float=0.0f
     var temperaturePrecedente:Float = 0.0f
     var id_temperature: String = "0"
@@ -54,12 +55,18 @@ class PagePrincipale : AppCompatActivity() {
 
 
         setMqttCallBack()
+
         obtenirTemperaturesSeuils()
         val etatTemperature = findViewById<Button>(R.id.btnEtatTemperature)
         etatTemperature.setOnClickListener {
+
             if(temperatureObtenue >= seuilMax){
+                val etatDeLaTemperature = 1;
+                mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
                 Toast.makeText(this, "Temperature est haute", Toast.LENGTH_LONG).show()
             }else if(temperatureObtenue <= seuilMin){
+                val etatDeLaTemperature = 2;
+                mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
                 Toast.makeText(this, "Temperature est basse", Toast.LENGTH_LONG).show()
             }else{
                 Toast.makeText(this, "Temperature est normale", Toast.LENGTH_LONG).show()
@@ -67,13 +74,12 @@ class PagePrincipale : AppCompatActivity() {
             println("id valeur "+id_temperature)
             modifierTemperatureSeuil(id_temperature)
         }
-//        if(id_temperature !=null){
-////            modifierTemperatureSeuil(id_temperature)
-//        }
+
 
         afficherValeurTemperature = findViewById(R.id.temperatureDhtt22Value)
 
         if(mqttClient.isConnected()) {
+
             mqttClient.subscribe("esp32/temperature")
         }else{
             Timer("SettingUp", false).schedule(1000) {
@@ -145,11 +151,12 @@ class PagePrincipale : AppCompatActivity() {
         call.enqueue(object : Callback<ListeTemperaturSeuil> {
 
             override fun onResponse(call: Call<ListeTemperaturSeuil>, response: Response<ListeTemperaturSeuil>) {
-                if(response.isSuccessful){
+                if(response.isSuccessful && response.body() != null){
                     val mesValeurs= response.body()
                     seuilMax = mesValeurs?.body?.get(0)?.SeuilMax.toString().toFloat()
                     seuilMin = mesValeurs?.body?.get(0)?.SeuilMin.toString().toFloat()
                     id_temperature = mesValeurs?.body?.get(0)?.id.toString()
+
                 }else{
                     recyclerListData.postValue(null)
                 }

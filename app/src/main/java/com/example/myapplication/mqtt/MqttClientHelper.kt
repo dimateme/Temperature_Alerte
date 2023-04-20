@@ -2,13 +2,14 @@ package com.example.myapplication.mqtt
 
 import android.content.Context
 import android.util.Log
+import androidx.lifecycle.ViewModel
 import com.example.myapplication.*
 import org.eclipse.paho.android.service.MqttAndroidClient
 import org.eclipse.paho.client.mqttv3.*
 import org.eclipse.paho.client.mqttv3.MqttClient
 
 
-class MqttClientHelper(context: Context?) {
+class MqttClientHelper(context: Context?):ViewModel() {
 
     companion object {
         const val TAG = "MqttClientHelper"
@@ -49,7 +50,7 @@ class MqttClientHelper(context: Context?) {
     // methode qui permet d'obtenir la temperature
 
 
-    private fun connect() {
+    public fun connect() {
         val mqttConnectOptions = MqttConnectOptions()
         mqttConnectOptions.isAutomaticReconnect = SOLACE_CONNECTION_RECONNECT
         mqttConnectOptions.isCleanSession = SOLACE_CONNECTION_CLEAN_SESSION

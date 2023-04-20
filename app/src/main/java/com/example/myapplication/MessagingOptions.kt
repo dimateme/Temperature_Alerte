@@ -1,11 +1,6 @@
 package com.example.myapplication
 
 
-// Solace PubSub+ Broker Options
-
-// Fill in your Solace Cloud PubSub+ Broker's 'MQTT Host' and 'Password' options.
-// This information can be found under:
-// https://console.solace.cloud/services/ -> <your-service> -> 'Connect' -> 'MQTT'
 const val SOLACE_CLIENT_USER_NAME = "paul"
 const val SOLACE_CLIENT_PASSWORD = "Savoir7$"
 const val SOLACE_MQTT_HOST = "tcp://172.16.5.103:1883"
