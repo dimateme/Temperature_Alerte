@@ -22,6 +22,9 @@ import org.eclipse.paho.client.mqttv3.MqttMessage
 import kotlinx.android.synthetic.main.activity_main.*
 
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_historique.*
 
 import kotlinx.android.synthetic.main.activity_page_principale.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -45,6 +48,7 @@ class PagePrincipale : AppCompatActivity() {
     var valeur: Float=0.0f
     var temperaturePrecedente:Float = 0.0f
     var id_temperature: String = "0"
+    var etatDeLaTemperature: Int = 0
     private val mqttClient by lazy {
         MqttClientHelper(this)
 
@@ -61,14 +65,15 @@ class PagePrincipale : AppCompatActivity() {
         etatTemperature.setOnClickListener {
 
             if(temperatureObtenue >= seuilMax){
-                val etatDeLaTemperature = 1;
+                etatDeLaTemperature = 1;
                 mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
                 Toast.makeText(this, "Temperature est haute", Toast.LENGTH_LONG).show()
             }else if(temperatureObtenue <= seuilMin){
-                val etatDeLaTemperature = 2;
+                etatDeLaTemperature = 2;
                 mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
                 Toast.makeText(this, "Temperature est basse", Toast.LENGTH_LONG).show()
             }else{
+                etatDeLaTemperature = 0;
                 Toast.makeText(this, "Temperature est normale", Toast.LENGTH_LONG).show()
             }
             println("id valeur "+id_temperature)
@@ -208,9 +213,15 @@ class PagePrincipale : AppCompatActivity() {
 
                 return true
             }
+            R.id.action_historique -> {
+                val intent = Intent(this@PagePrincipale, HistoriqueActivity::class.java)
+                startActivity(intent)
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
+
 
     override fun onDestroy() {
         mqttClient.destroy()

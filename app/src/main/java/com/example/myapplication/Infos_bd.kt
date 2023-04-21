@@ -3,7 +3,6 @@ package com.example.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
@@ -16,7 +15,10 @@ class Infos_bd : AppCompatActivity() {
     lateinit var viewModel: MainActivityViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_infos_bd)
+        val retourPagePrincipale = supportActionBar
+        retourPagePrincipale?.setDisplayHomeAsUpEnabled(true)
 
         var intent = intent
         val id_temperatureSeuil = intent.getStringExtra("id_temperature")

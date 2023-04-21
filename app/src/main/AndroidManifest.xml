@@ -17,14 +17,18 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".HistoriqueActivity"
+            android:exported="false"
+            android:parentActivityName=".HistoriqueActivity"/>
+        <activity
             android:name=".Infos_bd"
             android:exported="false"
-            android:parentActivityName=".PagePrincipale"/>
+            android:parentActivityName=".PagePrincipale" />
         <activity
             android:name=".ReglagesActivitity"
             android:exported="false"
             android:label="@string/title_activity_reglages_activitity"
-            android:parentActivityName=".PagePrincipale"/>
+            android:parentActivityName=".PagePrincipale" />
         <activity
             android:name=".PagePrincipale"
             android:exported="false" />

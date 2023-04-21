@@ -1,7 +1,7 @@
 package com.example.myapplication
 
 
-data class TemperatureListe (
+data class ListeTemperature (
     val body: List<Temperature>
 )
 data class Temperature (
