@@ -83,7 +83,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun processError(msg: String?) {
-        showToast("Error:" + msg)
+        val messageErreur ="Veuillez vérifier votre courriel et votre mot de passe";
+
+        showToast("Error:" + messageErreur)
     }
     fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()

@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_editext"
-                android:hint="Courriel"
+                android:hint="@string/courriel"
                 android:inputType="textEmailAddress"
                 android:padding="10dp"
                 android:paddingLeft="20sp"
@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/rounded_editext"
-                android:hint="Mot de passe"
+                android:hint="@string/mot_de_passe"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textAlignment="center"
@@ -68,11 +68,11 @@
 
             <Button
                 android:id="@+id/btnConnexion"
-                android:layout_width="wrap_content"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/rounded_button"
-                android:text="Connexion"
+                android:text="@string/connexion"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
 

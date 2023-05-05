@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Temperature alerte</string>
+    <string name="app_name"></string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_reglages_activitity">ReglagesActivitity</string>
 
@@ -17,4 +17,19 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="seuilMaximal">Seuil maximal</string>
+    <string name="seuilMinimal">Seuil minimal</string>
+    <string name="modifier">Modifier</string>
+    <string name="langue">Langue</string>
+    <string name="francais">Français</string>
+    <string name="anglais">Anglais</string>
+    <string name="courriel">Courriel</string>
+    <string name="mot_de_passe">Mot de passe</string>
+    <string name="connexion">Connexion</string>
+    <string name="deconnexion">Deconnexion</string>
+    <string name="reglages">Reglages</string>
+    <string name="historique">Historique</string>
+    <string name="changerLangue">Changer de langue</string>
+    <string name="temperature">Température</string>
+    <string name="etat_de_la_temp_rature">État de la température</string>
 </resources>

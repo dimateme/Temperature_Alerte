@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Alerta de temperatura</string>
+    <string name="seuilMaximal">umbral máximo</string>
+    <string name="seuilMinimal">Umbral mínimo</string>
+    <string name="modifier">Editar</string>
+    <string name="langue">Lengua</string>
+    <string name="francais">Francés</string>
+    <string name="anglais">Inglés</string>
+    <string name="courriel">correo electrónico</string>
+    <string name="mot_de_passe">Contraseña</string>
+    <string name="connexion">Conexión</string>
+    <string name="deconnexion">Cerrar sesión</string>
+    <string name="reglages">Ajustes</string>
+    <string name="historique">Histórico</string>
+    <string name="changerLangue">Cambiar el idioma</string>
+    <string name="temperature">Temperatura</string>
+    <string name="etat_de_la_temp_rature">Estado de temperatura</string>
+</resources>

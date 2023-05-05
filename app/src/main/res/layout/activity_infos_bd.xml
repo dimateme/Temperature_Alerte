@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".Infos_bd">
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/textSeuilMax"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Seuil Max"
+        android:text="@string/seuilMaximal"
         android:textStyle="bold"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
@@ -32,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:hint="Seuil Min"
+        android:text="@string/seuilMinimal"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
@@ -53,7 +57,29 @@
         android:layout_marginEnd="20dp"
         android:textStyle="bold"
         android:textColor="@color/white"
-        android:text="Modifier"
+        android:text="@string/modifier"
         android:layout_marginStart="20dp"
         />
+    <TextView
+        android:id="@+id/textLangue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/langue"
+        android:textStyle="bold"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        />
+    <Button
+        android:id="@+id/btnChangerLangue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="@string/changerLangue"
+        android:layout_marginStart="20dp"
+        />
+
 </LinearLayout>
+</ScrollView>

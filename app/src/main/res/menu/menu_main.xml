@@ -5,17 +5,17 @@
     <item
         android:id="@+id/action_seDeconnecter"
         android:orderInCategory="100"
-        android:title="Deconnexion"
+        android:title="@string/deconnexion"
         />
     <item
         android:id="@+id/action_infos_bd"
         android:orderInCategory="100"
-        android:title="Reglages"
+        android:title="@string/reglages"
         />
     <item
         android:id="@+id/action_historique"
         android:orderInCategory="100"
-        android:title="Historique"
+        android:title="@string/historique"
         />
 
 </menu>

@@ -38,7 +38,7 @@ import kotlin.concurrent.schedule
 class PagePrincipale : AppCompatActivity() {
     lateinit var viewModel: MainActivityViewModel
     var temperatureObtenue:Float = 0.0f
-    lateinit var afficherValeurTemperature: TextView
+    lateinit var afficherValeurTemperature: TextView /*champ qui permet d'afficher la température du senseur*/
     lateinit var editTextDate: EditText
     lateinit var recyclerListData: MutableLiveData<ListeTemperaturSeuil>
     var seuilMax: Float = 0.0f
