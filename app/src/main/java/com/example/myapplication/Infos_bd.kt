@@ -53,6 +53,7 @@ class Infos_bd : AppCompatActivity() {
             changerDeLangue()
         }
     }
+    /*fonction qui permet de changer de langue*/
     private fun changerDeLangue(){
         val listeLangue = arrayOf("Français","Anglais","Espagnol","Allemand")
         val mBuilder =AlertDialog.Builder(this@Infos_bd)
@@ -76,6 +77,7 @@ class Infos_bd : AppCompatActivity() {
         val mDialog = mBuilder.create()
         mDialog.show()
     }
+    //Fonction qui permet de changer la langue de l'application
 
     private fun setLocale(Lang: String) {
         val locale = Locale(Lang)
@@ -89,6 +91,7 @@ class Infos_bd : AppCompatActivity() {
         editor.putString("My_Lang",Lang)
         editor.apply()
     }
+    //Fonction qui permet de charger la langue enregistrée dans les préférences partagées
     private fun loadLocale(){
         val sharedPreferences = getSharedPreferences("Settings", Activity.MODE_PRIVATE)
         val language = sharedPreferences.getString("My_Lang","")

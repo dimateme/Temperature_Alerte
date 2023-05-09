@@ -10,10 +10,6 @@ data class LoginResponse(
 
 ){
     data class Body(
-//        @SerializedName("Courriel")
-//        var courriel: String,
-//        @SerializedName("MotDePasse")
-//        var motDePasse: String,
         @SerializedName("token")
         var token: String
 

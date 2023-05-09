@@ -58,7 +58,7 @@ class PagePrincipale : AppCompatActivity() {
         setContentView(R.layout.activity_page_principale)
 
 
-        setMqttCallBack()
+        setMqttCallBack() // fonction qui permet la connexion au broker mqtt
 
         obtenirTemperaturesSeuils()
         val etatTemperature = findViewById<Button>(R.id.btnEtatTemperature)
@@ -66,15 +66,15 @@ class PagePrincipale : AppCompatActivity() {
 
             if(temperatureObtenue >= seuilMax){
                 etatDeLaTemperature = 1;
+                // si la température est supérieur au seuil max, on envoie un message au eps32 pour allumer la led rouge
                 mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
-                Toast.makeText(this, "Temperature est haute", Toast.LENGTH_LONG).show()
             }else if(temperatureObtenue <= seuilMin){
                 etatDeLaTemperature = 2;
+                // si la température est inférieur au seuil min, on envoie un message au eps32 pour allumer la led rouge ne s'allume pas ou s'éteint
                 mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
-                Toast.makeText(this, "Temperature est basse", Toast.LENGTH_LONG).show()
             }else{
+                // si la température est inférieur au seuil min, on envoie un message au eps32 pour allumer la led rouge ne s'allume pas ou s'éteint
                 etatDeLaTemperature = 0;
-                Toast.makeText(this, "Temperature est normale", Toast.LENGTH_LONG).show()
             }
             println("id valeur "+id_temperature)
             modifierTemperatureSeuil(id_temperature)
@@ -149,6 +149,7 @@ class PagePrincipale : AppCompatActivity() {
     fun showToast(message: String) {
         Toast.makeText(this@PagePrincipale, message, Toast.LENGTH_LONG).show()
     }
+    /*Fonction qui permet d'obtenir les températures seuils*/
     fun obtenirTemperaturesSeuils(){
         recyclerListData = MutableLiveData()
         val retroInstance = RetroInstance.getRetroInstance().create(RetroService::class.java)
@@ -184,7 +185,7 @@ class PagePrincipale : AppCompatActivity() {
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        //Gonflez le menu; cela ajoute des éléments à la barre d'action si elle est présente
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
