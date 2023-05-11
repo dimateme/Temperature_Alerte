@@ -22,8 +22,6 @@ import org.eclipse.paho.client.mqttv3.MqttMessage
 import kotlinx.android.synthetic.main.activity_main.*
 
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_historique.*
 
 import kotlinx.android.synthetic.main.activity_page_principale.*
