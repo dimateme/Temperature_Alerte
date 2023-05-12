@@ -1,3 +1,9 @@
+/**
+ * Cette classe permet de créer un client pour l'API
+ * Elle permet de créer un client pour l'API
+ * Auteur:JEAN PAUL bai
+ * Version:1
+ */
 package com.example.myapplication.Authentification
 
 import okhttp3.OkHttpClient

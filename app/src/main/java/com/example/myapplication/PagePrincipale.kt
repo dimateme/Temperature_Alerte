@@ -127,7 +127,7 @@ class PagePrincipale : AppCompatActivity() {
                 temperatureObtenue = str.toFloat()
                 afficherValeurTemperature.text = str
                 valeur = str.toFloat()
-                //Methode qui permetd d'ajouter la temperature dans la base de donnée
+                //Methode qui permetd d'ajouter la temperature dans la base de donnée si elle est différente de la précédente
                 if (valeur != temperaturePrecedente){
                     val temperature = Temperature(valeur.toFloat(),currentDateTime)
                     viewModel.createNewTemperature(temperature)

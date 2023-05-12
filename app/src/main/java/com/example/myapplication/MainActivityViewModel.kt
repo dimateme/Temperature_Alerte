@@ -1,3 +1,12 @@
+/**
+ * Classe qui permet de faire le lien entre le model et la vue
+ * @property createNewTemperatureLiveData
+ * @property recyclerSeuilListData
+ * @property updateTemperatureSeuil
+ * Author : Jean Paul Bai
+ * Date : 2023-03-25
+ * Version : 1
+ */
 package com.example.myapplication
 
 import androidx.lifecycle.MutableLiveData
@@ -15,9 +24,11 @@ class MainActivityViewModel :ViewModel() {
         updateTemperatureSeuil = MutableLiveData()
     }
 
+    //Fonction qui permet d'obtenir les températures
     fun getTemperatureSeuilObservrable() : MutableLiveData<ListeTemperaturSeuil>{
         return recyclerSeuilListData
     }
+    //Fonction qui permet d'obtenir les températures
     fun getTemperatureListeSeuil(){
         val retroInstance = RetroInstance.getRetroInstance().create(RetroService::class.java)
         val call = retroInstance.abtenirSeuil()
@@ -36,12 +47,14 @@ class MainActivityViewModel :ViewModel() {
             }
         })
     }
+    //Fonction qui permet d'obtenir les températures
     fun getCreateNewTemperatureObserver(): MutableLiveData<TemperatureResponse?>{
         return createNewTemperatureLiveData
     }
     fun getUpdateTemperatureObserver(): MutableLiveData<TemperatureSeuilResponse?> {
         return updateTemperatureSeuil
     }
+    //Fonction qui permet d'ajouter une nouvelle température
     fun createNewTemperature(temperature: Temperature){
         val retroService = RetroInstance.getRetroInstance().create(RetroService::class.java)
         val call = retroService.ajouterTemperature(temperature)
@@ -60,6 +73,7 @@ class MainActivityViewModel :ViewModel() {
         }))
     }
 
+    //Fonction qui permet de modifier les températures seuils
     fun updateTemperatureSeuil(id:String,temperatureSeuil: TemperatureSeuil){
         val retroInstance = RetroInstance.getRetroInstance().create(RetroService::class.java)
         val call = retroInstance.modifierSeuil(id, temperatureSeuil)

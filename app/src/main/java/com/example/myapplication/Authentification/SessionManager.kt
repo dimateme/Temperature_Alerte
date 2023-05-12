@@ -1,3 +1,10 @@
+/**
+ * Cette classe permet de gérer la session de l'utilisateur
+ * Elle permet de sauvegarder, récupérer et supprimer le token de l'utilisateur
+ * Auteur: JEAN PAUL bai
+ * Version: 1
+ * Date: 2023-03-03
+ */
 package com.example.myapplication.Authentification
 
 import android.content.Context

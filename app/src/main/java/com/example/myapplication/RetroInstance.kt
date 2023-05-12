@@ -1,3 +1,10 @@
+/**
+ * Retrofit instance
+ * @return Retrofit instance
+ * @Author : Paul Bai
+ * @Date : 18/03/2023
+ *
+ */
 package com.example.myapplication
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

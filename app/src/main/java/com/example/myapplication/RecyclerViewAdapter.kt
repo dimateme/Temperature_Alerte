@@ -1,3 +1,12 @@
+/**
+ * Nom du programme : Alerte Temperature
+ * Version : 1.0
+ * Nom du fichier : ReclerViewAdapter.kt
+ * Auteur : Jean Paul Bai
+ * Date création : 2023-02-25
+ * Description : il permet de fournir l'accèsc aux données à afficher dans le RecyclerView
+ * */
+
 package com.example.myapplication
 
 import android.view.LayoutInflater

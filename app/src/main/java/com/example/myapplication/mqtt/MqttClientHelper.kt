@@ -1,3 +1,9 @@
+/**
+ * @Authors : Jean Paul Bai
+ * @Date    : 2023-03-20
+ * @fileOverview : MqttClientHelper.kt
+ * @Description : Ce fichier contient la classe d'aide au client mqtt
+ */
 package com.example.myapplication.mqtt
 
 import android.content.Context
@@ -81,6 +87,7 @@ class MqttClientHelper(context: Context?):ViewModel() {
             ex.printStackTrace()
         }
     }
+    // methode qui permet de souscrire a un topic
 
     fun subscribe(subscriptionTopic: String, qos: Int = 0) {
         try {
@@ -102,6 +109,7 @@ class MqttClientHelper(context: Context?):ViewModel() {
         }
     }
 
+    // methode qui permet de publier un message
     fun publish(topic: String, msg: String, qos: Int = 0) {
         try {
             val message = MqttMessage()
@@ -118,6 +126,7 @@ class MqttClientHelper(context: Context?):ViewModel() {
     fun isConnected() : Boolean {
         return mqttAndroidClient.isConnected
     }
+
 
     fun destroy() {
         mqttAndroidClient.unregisterResources()

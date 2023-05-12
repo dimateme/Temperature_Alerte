@@ -1,3 +1,7 @@
+/**
+ * Activité qui permet d'afficher les réglages de l'application
+ * @property SettingsFragment
+ */
 package com.example.myapplication
 
 import android.os.Bundle

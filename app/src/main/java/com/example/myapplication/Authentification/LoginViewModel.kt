@@ -1,3 +1,10 @@
+/**
+ * Classe LoginViewModel.kt
+ * Auteur: Jean-Paul Bai
+ * Date: 2023-04-20
+ * Classe qui permet de gérer les données de l'interface graphique de login
+ *
+ */
 package com.example.myapplication.Authentification
 
 import android.app.Application

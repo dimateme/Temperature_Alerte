@@ -1,3 +1,8 @@
+/**
+ * Définition de l'URL de base de l'API
+ * Auteur:JEAN PAUL bai
+ * Version:1
+ */
 package com.example.myapplication.Authentification
 
 object Constant {

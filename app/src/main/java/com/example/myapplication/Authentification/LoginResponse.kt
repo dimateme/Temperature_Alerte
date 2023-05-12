@@ -1,3 +1,9 @@
+/**
+ * Classe de données qui capture les informations sur les utilisateurs connectés, récupérées à partir du LoginRepository.
+ * Auteur: JEAN PAUL bai
+ * Version: 1
+ * Date: 2023-03-03
+ */
 package com.example.myapplication.Authentification
 import com.google.gson.annotations.SerializedName
 data class LoginResponse(

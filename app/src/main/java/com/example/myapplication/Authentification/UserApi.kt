@@ -1,3 +1,11 @@
+/**
+ * Classe qui permet de faire la connexion avec l'API
+ * @property loginUser permet de faire la connexion avec l'API
+ * @property getApi permet de faire la connexion avec l'API
+ * Auteur: Jean-Paul Bai
+ * Date: 2023-03-20
+ * Classe qui permet de gérer les données de l'interface graphique de login
+ */
 package com.example.myapplication.Authentification
 
 import retrofit2.Response

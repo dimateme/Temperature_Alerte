@@ -1,3 +1,14 @@
+/**
+ * Nom du programme : Alerte Temperature
+ * Version : 1.0
+ * Nom du fichier : RetroService.kt
+ * Auteur : Jean Paul Bai
+ * Date création : 2023-03-25
+ * Description : Interface qui permet de faire les requêtes vers le serveur
+ * qui permettent d'obtenir la liste des températures, d'ajouter une température
+ * et de modifier les seuils
+ *
+ */
 package com.example.myapplication
 
 import retrofit2.Call
@@ -13,8 +24,6 @@ interface RetroService {
     //la fonction permet d'obtenir la liste des températures
     @GET("historique")
     fun abtenirListeTemperature(): Call<ListeTemperature>
-    @GET("historique")
-    fun rechercherTemperature(@Query("temperature") searchFloat: Float): Call<ListeTemperature>
 
     @GET("historique{id_temperature}")
     fun obtenirTemperature(@Path("id_temperature") searchFloat: Float): Call<ListeTemperature>
