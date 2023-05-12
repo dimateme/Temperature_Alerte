@@ -1,8 +1,7 @@
 <resources>
-    <string name="app_name"></string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">Alerte température</string>
     <string name="title_activity_reglages_activitity">ReglagesActivitity</string>
-
+    <string name="action_settings">Settings</string>
     <!-- Preference Titles -->
     <string name="messages_header">Paramettres</string>
     <string name="sync_header">Sync</string>

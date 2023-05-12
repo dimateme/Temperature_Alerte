@@ -123,6 +123,4 @@ class Infos_bd : AppCompatActivity() {
 
     }
 
-
-
 }

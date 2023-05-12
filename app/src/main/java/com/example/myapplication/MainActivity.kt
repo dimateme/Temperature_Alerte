@@ -26,9 +26,12 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setSupportActionBar(toolbar)
-        val token = SessionManager.getToken(this)
 
+        setSupportActionBar(toolbar)
+        val actionBar = supportActionBar
+        actionBar!!.title = resources.getString(R.string.app_name)
+        val token = SessionManager.getToken(this)
+        // si le token n'est pas null ou vide, on navigue vers la page principale
         if (!token.isNullOrBlank()) {
             navigateToHome()
         }
@@ -57,24 +60,30 @@ class MainActivity : AppCompatActivity() {
             doLogin()
         }
     }
+
+    // Fonction pour naviguer vers la page principale
     private fun navigateToHome() {
         val intent = Intent(this, PagePrincipale::class.java)
         startActivity(intent)
     }
+    // Fonction pour naviguer vers la page d'inscription
     fun doLogin() {
         val courriel = findViewById<EditText>(R.id.edtCourriel).text.toString()
         val motDePasse = findViewById<EditText>(R.id.edtMotDePasse).text.toString()
         viewModel.loginUser(courriel= courriel, motDePasse = motDePasse)
 
     }
+    // Fonction pour afficher la barre de chargement
     fun showLoading() {
         val prgbar = findViewById<ProgressBar>(R.id.prgbar)
         prgbar.visibility = View.VISIBLE
     }
+    // Fonction pour cacher la barre de chargement
     fun stopLoading() {
         val prgbar = findViewById<ProgressBar>(R.id.prgbar)
         prgbar.visibility = View.GONE
     }
+    // Fonction pour afficher le message d'erreur
     fun processLogin(data: LoginResponse?) {
         showToast("Success:" + data?.message)
         if (!data?.body?.token.isNullOrEmpty()) {
@@ -82,11 +91,13 @@ class MainActivity : AppCompatActivity() {
             navigateToHome()
         }
     }
+    // Fonction pour afficher le message d'erreur
     fun processError(msg: String?) {
         val messageErreur ="Veuillez vérifier votre courriel et votre mot de passe";
 
         showToast("Error:" + messageErreur)
     }
+    // Fonction pour afficher le message d'erreur
     fun showToast(msg: String) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }

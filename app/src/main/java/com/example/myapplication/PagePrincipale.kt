@@ -55,7 +55,8 @@ class PagePrincipale : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_page_principale)
 
-
+        val actionBar = supportActionBar
+        actionBar!!.title = resources.getString(R.string.app_name)
         setMqttCallBack() // fonction qui permet la connexion au broker mqtt
 
         obtenirTemperaturesSeuils()
