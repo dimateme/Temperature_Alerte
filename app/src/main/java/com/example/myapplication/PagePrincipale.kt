@@ -65,17 +65,17 @@ class PagePrincipale : AppCompatActivity() {
 
             if(temperatureObtenue >= seuilMax){
                 etatDeLaTemperature = 1;
-                // si la température est supérieur au seuil max, on envoie un message au eps32 pour allumer la led rouge
+                // si la température est supérieur au seuil max, on envoie un message au eps32 via le broker pour allumer la led rouge
                 mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
             }else if(temperatureObtenue <= seuilMin){
                 etatDeLaTemperature = 2;
-                // si la température est inférieur au seuil min, on envoie un message au eps32 pour allumer la led rouge ne s'allume pas ou s'éteint
+                // si la température est inférieur au seuil min, on envoie  un message  à l' eps32 via le broker mqtt pour éteindre la led rouge si elle est allumée
                 mqttClient.publish("etat_temp", etatDeLaTemperature.toString())
             }else{
-                // si la température est inférieur au seuil min, on envoie un message au eps32 pour allumer la led rouge ne s'allume pas ou s'éteint
+                // si la température est normale , on envoie un message d'alerte l'eps32 via le broker mqtt pour éteindre la led rouge si elle est allumée
                 etatDeLaTemperature = 0;
             }
-            println("id valeur "+id_temperature)
+
             modifierTemperatureSeuil(id_temperature)
         }
 
